@@ -38,7 +38,7 @@ public class HashCodeUsage {
             }
             User user = (User) obj;
 
-            return userName.equals(user.getUserName()) && userId == user.getUserId() && address.equals(user.getAddress());
+            return userName.equals(user.getUserName()) && userId == user.getUserId()  && Arrays.equals(this.address,user.getAddress());
         }
 
         public void setAddress(String[] address) {
@@ -62,6 +62,7 @@ public class HashCodeUsage {
     public static void main(String[] args) {
 
         String[] strArr=new String[2];
+        String[] strArr2=new String[2];
 
 
         User user1 = new User();
@@ -71,11 +72,11 @@ public class HashCodeUsage {
 
 
 
-        strArr[0]="test";
+//        strArr[0]="test";
         User user2 = new User();
         user2.setUserId(100L);
         user2.setUserName("krisjin");
-        user2.setAddress(strArr);
+        user2.setAddress(strArr2);
 
         System.out.println("User1 equals User2 :" + user1.equals(user2));
         System.out.println("User1 hashcode :" + user1.hashCode());
